@@ -1,0 +1,18 @@
+nose
+nose-exclude
+
+update: 2/20/2017
+
+Functionality:
+
+	Logic/Arithmetic
+	Load/Store
+	Control Flow/Jump/Branch
+
+Testing:
+	
+	Tests for three types of ARM statements
+
+Extra:
+
+	GUI
