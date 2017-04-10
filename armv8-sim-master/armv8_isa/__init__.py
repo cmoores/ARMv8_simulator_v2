@@ -2,7 +2,7 @@
 This package provides the ARMv8 ISA
 """
 # Import instruction classes
-from instruction import R, I, D, B, CB, IW
+from instruction import R, I, D, B, CB, IW, CMP
 
 # Import instructions from modules below
 from add import ADD
@@ -25,6 +25,8 @@ from adds import ADDS
 from addis import ADDIS
 from subs import SUBS
 from subis import SUBIS
+from cmp import CMP
+from b_eq import B_EQ
 
 instset = {
     "ADD": ADD,
@@ -46,5 +48,7 @@ instset = {
     "ADDS": ADDS,
     "ADDIS": ADDIS,
     "SUBS": SUBS,
-    "SUBIS": SUBIS
+    "SUBIS": SUBIS,
+    "CMP": CMP,
+    "B.EQ": B_EQ
 }

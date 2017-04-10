@@ -8,3 +8,4 @@ from d_inst import d_inst as D
 from b_inst import b_inst as B
 from cb_inst import cb_inst as CB
 from iw_inst import iw_inst as IW
+from cmp_inst import cmp_inst as CMP

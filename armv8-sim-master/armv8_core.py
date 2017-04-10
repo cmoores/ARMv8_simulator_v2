@@ -19,8 +19,8 @@ class ARMv8Core:
         reserved = False
         static = False
         data = 0b0
-        
-        
+
+
         def __eq__(self, other):
             if self.number != other.number:
                 return False
@@ -44,22 +44,22 @@ class ARMv8Core:
             self.number = number
             self.reserved = reserved
             self.static = static
-        
-        
+
+
         def data_max(self, unsigned=True):
             if unsigned:
                 return 18446744073709551615
             else:
                 return 9223372036854775807
-        
-        
+
+
         def data_min(self, unsigned=True):
             if unsigned:
                 return 0
             else:
                 return -9223372036854775808
-        
-        
+
+
         def set(self, data):
             if type(data) is not int:
                 raise TypeError("Register data must be of type int")
@@ -73,8 +73,8 @@ class ARMv8Core:
                 raise ValueError(ves)
             if not self.static:
                 self.data = data
-        
-        
+
+
         def get(self, binary=False, hexa=False):
             if type(binary) is not bool:
                 raise TypeError("Value of binary must be of type bool")
@@ -84,8 +84,8 @@ class ARMv8Core:
                 return hex(self.data)
             else:
                 return self.data
-    
-    
+
+
     reg = {
         "X0": Register(0, False, False),
         "X1": Register(1, False, False),
@@ -121,13 +121,15 @@ class ARMv8Core:
         "XZR": Register(31, True, True),
         "PC": Register(32, True, False)
     }
-    
-    
+
+
     flag_negative = False
     flag_zero = False
     flag_overflow = False
     flag_carry = False
 
+    labels = {}
+    code = {}
 
     def __init__(self):
         self.reg.update({"IP0": self.reg["X16"], "IP1": self.reg["X17"],

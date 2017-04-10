@@ -6,4 +6,4 @@ import armv8_file
 import armv8_isa
 import instruction
 
-from cli import main
+from cli_test import main1
