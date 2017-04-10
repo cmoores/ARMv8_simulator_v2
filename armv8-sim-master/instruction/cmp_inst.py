@@ -11,11 +11,11 @@ class cmp_inst:
     """
 
     inst_format = 'CMP'
-    opcode = 99
+    opcode = 0b0
 
     operation = None
     op_args = ["proc", "operand1","operand2"]
-    
+
     
     def __eq__(self, other):
         if self.inst_format != other.inst_format:
@@ -37,7 +37,7 @@ class cmp_inst:
             raise TypeError("operand1 must be of type int")
         if type(operand2) is not int:
             raise TypeError("operand2 must be of type int")
-        
+
         if self.operation is not None:
             self.operation(proc, operand1, operand2)
 

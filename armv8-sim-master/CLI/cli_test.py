@@ -14,14 +14,18 @@ def main1():
     running = True
     armv8_isa.CMP.execute(c,0,0)
     print_flags(c)
-    armv8_isa.CMP.execute(c,1,0)
-    print_flags(c)
-    armv8_isa.CMP.execute(c,0,1)
-    print_flags(c)
+    #armv8_isa.CMP.execute(c,1,0)
+    #print_flags(c)
+    #armv8_isa.CMP.execute(c,0,1)
+    #print_flags(c)
 
     f = open("../fact.s", 'r')
     armv8_file.coreParseFile(c, f)
-    #print(c.reg["PC"].data)
+    armv8_isa.B_EQ.execute(c,"fact")
+    print(c.labels)
+    print(c.labels["fact"])
+    print(c.reg["PC"].data)
+
     #print(c.labels)
     #print(c.code)
 

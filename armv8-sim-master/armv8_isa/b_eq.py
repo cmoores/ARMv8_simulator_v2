@@ -1,5 +1,5 @@
 """
-This module provides the R-format ADD instruction
+This module provides the B-format B.EQ instruction
 """
 from armv8_isa import B
 
@@ -7,8 +7,7 @@ from armv8_isa import B
 def operation(proc, BR_address):
     # the logic of branch eq is to only branch if the the proc.flag_zero == 1
     # if true we will increment the PC to label + 4
-
-    if proc.flag_zero == True:
-        proc.reg[32].set = label + 4
+    if proc.flag_zero:
+        proc.reg["PC"].set(proc.labels[BR_address])
 
 B_EQ = B(98, operation)
