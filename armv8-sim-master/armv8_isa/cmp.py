@@ -10,22 +10,20 @@ def operation(proc, operand1, operand2):
     # flag_zero will be set to true if R2 == R1
     raw = operand1 - operand2
     if raw == 0:
-        proc.flag_zero = True
-        proc.flag_negative = False
-    
+        proc.Z = True
+        proc.N = False
+
     else:
         if raw > 0:
-            proc.flag_zero = False
-            proc.flag_negative = False
-        
+            proc.Z = False
+            proc.N = False
+
         else:
-            proc.flag_zero = False
-            proc.flag_negative = True
-        
-    
+            proc.Z = False
+            proc.N = True
+
+
 #    result = int(raw % proc.reg[Rd].data_max())
 #    proc.reg[Rd].set(result)
 
 CMP = CMP(99, operation)
-
-

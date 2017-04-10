@@ -31,8 +31,8 @@ def main1():
 
 
 def print_flags(core):
-    print "Zero Flag: {}".format(core.flag_zero)
-    print "Negative Flag: {}".format(core.flag_negative)
-    print "Carry Flag: {}".format(core.flag_carry)
-    print "Overflow Flag: {}".format(core.flag_overflow)
+    print "Zero Flag: {}".format(core.Z)
+    print "Negative Flag: {}".format(core.N)
+    print "Carry Flag: {}".format(core.C)
+    print "Overflow Flag: {}".format(core.V)
     print ""

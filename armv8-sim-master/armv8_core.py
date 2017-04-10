@@ -123,10 +123,10 @@ class ARMv8Core:
     }
 
 
-    flag_negative = False
-    flag_zero = False
-    flag_overflow = False
-    flag_carry = False
+    N = False
+    Z = False
+    V = False
+    C = False
 
     labels = {}
     code = {}
