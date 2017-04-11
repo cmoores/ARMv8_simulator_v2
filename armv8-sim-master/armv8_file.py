@@ -24,7 +24,7 @@ def coreParseFile(core, file):
 
     PC = 0
     for line in lines:
-        cline = [x.replace(',','') for x in line.lstrip().split()]
+        cline = [x.replace((','or':'),'') for x in line.lstrip().split()]
         core.code[PC] = cline
 
         PC = PC + 4
@@ -32,10 +32,13 @@ def coreParseFile(core, file):
     while core.reg["PC"].get() < PC:
         corePC = core.reg["PC"].get()
         if core.code[corePC]:
-            if core.code[corePC][0] in armv8_isa.instset:
-                i = armv8_isa.instset[core.code[corePC][0]]
+            if isinstance(core.code[corePC][0], str):
+                print(core.code[corePC][0])
+            if core.code[corePC][0].upper() in armv8_isa.instset:
+                i = armv8_isa.instset[core.code[corePC][0].upper()]
                 if i.inst_format == "B":
                     print "B"
+                    i.execute(core,core.code[corePC][1])
                 elif i.inst_format == "CB":
                     print "CB"
                 elif i.inst_format == "D":
@@ -46,6 +49,9 @@ def coreParseFile(core, file):
                     print "IW"
                 elif i.inst_format == "R":
                     print "R"
+                    print(core.code[corePC][3])
+                    print(core.code[corePC][2])
+                    print(core.code[corePC][1])
                     i.execute(core,
                           core.code[corePC][3],
                           0,
@@ -54,8 +60,8 @@ def coreParseFile(core, file):
 
         core.reg["PC"].set(corePC + 4)
 
-    print core.labels
-    print core.code
+    #print core.labels
+    #print core.code
 
     return
 
