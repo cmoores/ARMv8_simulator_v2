@@ -21,10 +21,9 @@ def main1():
 
     f = open("../fact.s", 'r')
     armv8_file.coreParseFile(c, f)
-    armv8_isa.B_EQ.execute(c,"fact")
-    print(c.labels)
-    print(c.labels["fact"])
-    print(c.reg["PC"].data)
+    #print(c.labels)
+    #print(c.labels["fact"])
+    #print(c.reg["PC"].data)
 
     #print(c.labels)
     #print(c.code)

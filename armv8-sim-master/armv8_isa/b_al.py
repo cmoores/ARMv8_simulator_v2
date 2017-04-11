@@ -11,4 +11,3 @@ def operation(proc, BR_address):
         proc.reg["PC"].set(proc.labels[BR_address])
 
 B_AL = B(97, operation)
-#AAA
